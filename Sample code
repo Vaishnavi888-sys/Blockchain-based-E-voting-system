@@ -1,0 +1,75 @@
+Servlet Mapping:
+<servlet>
+<description>
+</description>
+<display-name> AdminLogin</display-name>
+<servlet-name>AdminLogin</servlet-name>
+<servlet-class> evote.AdminLogin</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>AdminLogin</servlet-name>
+<url-pattern>/AdminLogin</url-pattern>
+</servlet-mapping>
+Class.forName("com.mysql.jdbc.Driver").newInstance();
+Connection c = DriverManager.getConnection("jdbc:mysql:///Voting", "", "");
+Statement st = c.createStatement();  
+ if (Username.equalsIgnoreCase("")) {message.setMessage("Please enter a username"); 
+return false;
+
+//Method to add Administrators to database
+public static void addAdmin(String name, String surname, String email, String
+sex, String username, String password, String word) {
+try {
+//If age not specified, default to 0
+Class.forName("com.mysql.jdbc.Driver").newInstance(); Connection c =
+DriverManager.getConnection("jdbc:mysql:///Voting");
+Statement st = c.createStatement();        st.executeUpdate("insert into users (username, password, Type,
+NumberTries, word) VALUES ('" + username + "', '" + password + "', 2, 0, '" + word + "')");
+st.executeUpdate("insert into administrator (firstname, surname, email, sex, username) VALUES ('" + name + "', '" + surname + "', '" + email + "''" + sex + "', '" + username + "')");
+<P></FONT>
+<jsp:useBean id="Message" class="beans.Message" scope="session">
+</jsp:useBean>
+<jsp:getProperty name="Message" property="message" /><BR>
+if (DatabaseConnection.Type.equalsIgnoreCase("2")) {
+context.getRequestDispatcher("/AdminMenu.jsp").forward(req,
+resp);
+} else 
+{
+message.setMessage("Invalid Username / Password. Please check and try again");
+context.getRequestDispatcher("/AdminLogin.jsp").forward(req,resp);
+}
+try {
+Class.forName("com.mysql.jdbc.Driver").newInstance(); 
+ Connection c = DriverManager.getConnection("jdbc:mysql:///Voting"); 
+Statement st = c.createStatement();
+ResultSet rs = st.executeQuery("select * from Voters"); 
+while (rs.next())
+ {
+fName = rs.getString(1);
+ lName = rs.getString(2);
+ email = rs.getString(10);
+ street = rs.getString(5);
+ town = rs.getString(6);
+ postcode = rs.getString(7);
+out.print("<tr><td>" + fName + "</td><td>" + lName + "</td><td>" + email + "</td><td>" + street + "</td><td>" + town + "</td><td>" + postcode + "</td> ");
+td><a href="DeletedVoters.jsp?email=<%=email%>">Delete</a></td>
+<%
+
+// Once voter has confirmed vote, flag set to 1, so user not allowed to vote again
+ try {
+Class.forName("com.mysql.jdbc.Driver").newInstance(); 
+Connection c =DriverManager.getConnection("jdbc:mysql:///Voting");
+Statement st = c.createStatement();       
+  st.executeUpdate("update voters set vote1 = '" + Vote.getVote1()
++ "', vote2 = '" + Vote.getVote2() + "', vote3 = '" +
+Vote.getVote3()
++ "', vote4 = '" + Vote.getVote4() + "', vote5 = '" +
+Vote.getVote5()
++ "', vote6 = '" + Vote.getVote6() + "', voted = '1' where username = '" + Vote.getUserName() + "'");
+} catch (Exception e)
+ {out.println(e);}
+Cipher cipher = Cipher.getInstance("DES/ECB/PKCS5Padding");
+KeyGenerator generator = KeyGenerator.getInstance("DES");
+generator.init(new SecureRandom());
+ key = generator.generateKey();
+ObjectOutputStreamout=newObjectOutputStream(newFileOutputStream("OnlineVoting.ser"));
